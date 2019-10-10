@@ -1,0 +1,21 @@
+[package]
+name = "asnom"
+version = "0.1.1"
+authors = ["Gregor Reitzenstein <dean4devil@paranoidlabs.org>"]
+license = "MIT"
+
+description = "A ASN.1 BER Parser&Writer based on Nom"
+repository = "https://github.com/dequbed/asnom"
+
+keywords = ["ASN1", "BER", "Nom"]
+categories = ["encoding", "parsing"]
+
+[features]
+default = ["mesalock_sgx", "std"]
+mesalock_sgx = ["std","sgx_tstd"]
+std = ["mesalock_sgx"]
+
+[dependencies]
+sgx_tstd    = { rev = "v1.0.9", git = "https://github.com/baidu/rust-sgx-sdk.git", optional = true }
+nom         = { git = "https://github.com/renxingliang/nom-2.0.1-sgx.git" }
+byteorder   = { git = "https://github.com/mesalock-linux/byteorder-sgx" }
